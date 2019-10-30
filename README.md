@@ -1,3 +1,3 @@
 # Rad Team
 
-Visit our website on [radteam.tech](radteam.tech)
+Visit our website on [radteam.tech](http://radteam.tech)
