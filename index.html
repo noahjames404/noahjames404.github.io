@@ -135,7 +135,7 @@
         <div class='container-fluid'>
             <div class='row'>
                 <div class='col-lg-4 col-sm-6 mb-4'>
-                    <div class="card h-100" >
+                    <div class="card h-100">
                         <img src="img/projects/thumbnails/2.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3 class='card-title'>Game Development <span class='fa fa-hat-wizard'></span></h3>
@@ -144,7 +144,7 @@
                     </div>
                 </div>
                 <div class='col-lg-4 col-sm-6 mb-4'>
-                    <div class="card h-100" >
+                    <div class="card h-100">
                         <img src="img/projects/thumbnails/3.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3 class='card-title'>Desktop Application Development <span class='fa fa-desktop'></span></h3>
@@ -153,7 +153,7 @@
                     </div>
                 </div>
                 <div class='col-lg-4 col-sm-6 mb-4'>
-                    <div class="card h-100" >
+                    <div class="card h-100">
                         <img src="img/projects/thumbnails/4.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3 class='card-title'>Mobile Development <span class='fa fa-mobile-alt'></span></h3>
@@ -162,7 +162,7 @@
                     </div>
                 </div>
                 <div class='col-lg-4 col-sm-6 mb-4'>
-                    <div class="card h-100" >
+                    <div class="card h-100">
                         <img src="img/projects/thumbnails/5.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3 class='card-title'>Electrical prototyping <span class='fa fa-microchip'></span></h3>
@@ -171,7 +171,7 @@
                     </div>
                 </div>
                 <div class='col-lg-4 col-sm-6 mb-4'>
-                    <div class="card h-100" >
+                    <div class="card h-100">
                         <img src="img/projects/thumbnails/6.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3 class='card-title'>Web Development <span class='fa fa-globe'></span></h3>
@@ -180,7 +180,7 @@
                     </div>
                 </div>
                 <div class='col-lg-4 col-sm-6 mb-4'>
-                    <div class="card h-100" >
+                    <div class="card h-100">
                         <img src="img/projects/thumbnails/1.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h3 class='card-title'>T-Shirt Printing <span class='fa fa-tshirt'></span></h3>
@@ -262,7 +262,30 @@
             </div>
         </div>
     </footer>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                xfbml: true,
+                version: 'v5.0'
+            });
+        };
 
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+    </script>
+
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat" attribution=setup_tool page_id="100391608096551" theme_color="#3084e3" logged_in_greeting="Hi! How can we help you?" logged_out_greeting="Hi! How can we help you?">
+    </div>
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
