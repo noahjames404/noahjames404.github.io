@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DragNDropPagerDoc</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean bg-primary">
+        <div class="container"><a class="navbar-brand" href="index.html">DragNDropPager</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav ml-auto nav-text-white">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="tutorial-single-page.html">Tutorial</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Documentation</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="row mt-3">
+        <div class="col-12 col-lg-3 col-xl-3">
+            <div class="p-3">
+                <h3>Tutorials</h3>
+                <p class="mb-1"><a href="tutorial-single-page.html">Single Page</a></p>
+                <p class="mb-1"><a href="tutorial-multiple-pages.html">Multiple Pages</a></p>
+                <p class="mb-1"><a href="tutorial-multiple-pages-viewpager.html">Multiple Pages with View Pager</a></p>
+                <p class="mb-1"><a href="tutorial-extract-items.html">Extract Items in a Page</a></p>
+                <p class="mb-1"><a href="tutorial-button-customization.html">Button Customization</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div>
+                <h1 class="p-2">Single Page</h1>
+                <div>
+                    <p>A single page only consists of a Relative Layout. Create a RelativeLayout with an id of single_page to an XML file.</p><pre><code class="xml hljs">&lt;RelativeLayout
+        android:id="@+id/single_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"&gt;
+&lt;/RelativeLayout&gt;
+</code></pre>
+</div>
+                <div>
+                    <p>Create an instance of DNDPager and add the single_page to its constructor and set the number of rows &amp; columns to 4.</p><pre><code class="java hljs">RelativeLayout single_page = findViewById(R.id.single_page);
+DNDPager pager = new DNDPager(single_page,4,4,"mygroup",this);
+</code></pre>
+</div>
+                <div>
+                    <p>To enable the drag &amp; drop feature.</p><pre><code class="java hljs">pager.setIsEditable(true);
+</code></pre>
+</div>
+                <div>
+                    <p>Create a list of DNDItems</p><pre><code class="java hljs">List&gt;DNDItem&lt; items = new ArrayList&lt;&gt;();
+items.add(new DNDItem("Drag Me",null, Color.GREEN,"tag1"));
+items.add(new DNDItem("Drag Me too",null, Color.WHITE,"tag2"));
+items.add(new DNDItem("No, Drag me First",null, Color.RED,"tag3"));
+</code></pre>
+</div>
+                <div>
+                    <p>To view the items inside the page call the render() method and add it to it's parameter. Run the code to check if it is running.</p><pre><code class="java hljs">pager.render(items);
+</code></pre>
+</div>
+                <h4>Adding OnClick Listeners</h4>
+                <div>
+                    <p>The callback is applied to all buttons, a tag is used to distinguish each button. Ensure that setIsEditable() is set to false or it won't work.</p><pre><code class="java hljs">pager.setOnClickBtnListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getTag().toString()){
+                    case "tag1":
+                        Toast.makeText(getApplicationContext(),"Wow",Toast.LENGTH_SHORT).show();
+                        break;
+                    case "tag2":
+                        Toast.makeText(getApplicationContext(),"Hello",Toast.LENGTH_SHORT).show();
+                        break;
+                    case "tag3":
+                        Toast.makeText(getApplicationContext(),"Bye",Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
+</code></pre>
+</div>
+                <div>
+                    <h4>Update Page</h4>
+                    <p>updateButtons(List&lt;DNDItem&gt; items) &nbsp;updates the contents inside the page. Contents can also be replace by another list of DNDItems by creating a new List and call the updateButtons() method.</p><pre><code class="java hljs">items.get(0).text = "I've change";
+pager.updateButtons(items);
+</code></pre>
+</div>
+                <div>
+                    <h4>Button Editor</h4>
+                    <p>While on edit mode users can customize the button's properties by double clicking it.<br></p><pre><code class="java hljs">pager.setOnCustomize(new IDNDPager.ItemView() {
+            @Override
+            public void onCustomize(DNDPager pager, View view) {
+                //your code
+            }
+        });
+</code></pre>
+</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-dark bg-primary">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 item">
+                        <h3>Navigate</h3>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Tutorial</a></li>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="https://github.com/noahjames404/DragNDropPager">Github Repo</a></li>
+                            <li><a href="https://jitpack.io/#noahjames404/dragndroppager">Jitpack Library</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Author</h3>
+                        <p>Noah James Yanga</p>
+                    </div>
+                </div>
+                <p class="text-white text-center">Radteam © 2019</p>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

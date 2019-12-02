@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DragNDropPagerDoc</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean bg-primary">
+        <div class="container"><a class="navbar-brand" href="index.html">DragNDropPager</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav ml-auto nav-text-white">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="tutorial-single-page.html">Tutorial</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Documentation</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="row mt-3">
+        <div class="col-12 col-lg-3 col-xl-3">
+            <div class="p-3">
+                <h3>Tutorials</h3>
+                <p class="mb-1"><a href="tutorial-single-page.html">Single Page</a></p>
+                <p class="mb-1"><a href="tutorial-multiple-pages.html">Multiple Pages</a></p>
+                <p class="mb-1"><a href="tutorial-multiple-pages-viewpager.html">Multiple Pages with View Pager</a></p>
+                <p class="mb-1"><a href="tutorial-extract-items.html">Extract Items in a Page</a></p>
+                <p class="mb-1"><a href="tutorial-button-customization.html">Button Customization</a></p>
+            </div>
+        </div>
+        <div class="col">
+            <div>
+                <h1 class="p-2">Button Customization</h1>
+                <div>
+                    <p>This tutorial is base on FCustomizePanel a default customizer used by FCollectionAdapter's fragment, but it will only focus on customizing the name, width ratio &amp; height ratio. Name the xml file as button_customizer</p><pre><code class="xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"&gt;
+
+    &lt;TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Customize Item"
+        android:textAlignment="center"
+        android:textColor="@color/primaryFont"
+        android:textSize="50dp"/&gt;
+
+    &lt;LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"&gt;
+
+        &lt;TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity=""
+            android:textColor="@color/primaryFont"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:text="Text" /&gt;
+
+        &lt;EditText
+            android:id="@+id/et_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="" /&gt;
+    &lt;/LinearLayout&gt;
+
+    &lt;LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"&gt;
+
+        &lt;TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity=""
+            android:textColor="@color/primaryFont"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:text="Height" /&gt;
+
+        &lt;EditText
+            android:id="@+id/et_height"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:ems="10"
+            android:inputType="number"
+            android:text="" /&gt;
+    &lt;/LinearLayout>
+    &lt;LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"&gt;
+
+        &lt;TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity=""
+            android:textColor="@color/primaryFont"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:text="Width" /&gt;
+
+        &lt;EditText
+            android:id="@+id/et_width"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:ems="10"
+            android:inputType="number"
+            android:text="" /&gt;
+    &lt;/LinearLayout&gt;
+
+    &lt;Button
+        android:id="@+id/btn_confirm"
+        android:text="CONFIRM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre>
+</div>
+                <div>
+                    <p>Create a ButtonCustomizer Class that extends to DialogFragment</p><pre><code class="java hljs">public class ButtonCustomizer extends DialogFragment {
+    private DNDButton btn;
+    private EditText et_height,et_width,et_text;
+    private Button btn_confirm;
+
+    public static ButtonCustomizer getInstance(DNDButton btn){
+        ButtonCustomizer fragment = new ButtonCustomizer();
+        fragment.btn = btn;
+        return fragment;
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.button_customizer,container);
+        et_height = view.findViewById(R.id.et_height);
+        et_width = view.findViewById(R.id.et_width);
+        et_text = view.findViewById(R.id.et_text);
+
+        btn_confirm = view.findViewById(R.id.btn_confirm);
+
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        //on start of the fragment initialize the default values from the button.
+        final int default_cell_height = btn.getCellHeightRatio();
+        final int default_cell_width = btn.getCellWidthRatio();
+
+        et_height.setText(String.valueOf(default_cell_height));
+        et_width.setText(String.valueOf(default_cell_width));
+        et_text.setText(btn.getText());
+
+        btn_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /**
+                 * initialize the default fields
+                 */
+                int cell_height = Integer.parseInt(et_height.getText().toString());
+                int cell_width = Integer.parseInt(et_width.getText().toString());
+                /**
+                 * update button grid position & size
+                 */
+                ViewGroup.MarginLayoutParams params =  btn.getLastPager().setGridPosition(cell_width,cell_height,btn.getPositionX(),btn.getPositionY());
+                btn.setCellHeightRatio(cell_height);
+                btn.setCellWidthRatio(cell_width);
+                /**
+                 * validate changes, this is the most important as the position and the size of
+                 * the button must be validated to avoid views from being place in obstructed areas.
+                 */
+                DNDPager.MESSAGE message = btn.getLastPager().checkItem(params,btn);
+                switch (message){
+                    case SAVED:
+                        /**
+                         * changes are valid
+                         */
+                        btn.setText(et_text.getText().toString());
+                        btn.setLayoutParams(params);
+                        Toast.makeText(getContext(),"saved",Toast.LENGTH_SHORT).show();
+                        break;
+                    case OVERLAPPED:
+                        /**
+                         * Error: button overlaps another button, return previous changes to default.
+                         */
+                        Toast.makeText(getContext(),"Button overlaps another button",Toast.LENGTH_SHORT).show();
+                        btn.setCellHeightRatio(default_cell_height);
+                        btn.setCellWidthRatio(default_cell_width);
+                        break;
+                    case OUT_OF_BOUNDS:
+                        /**
+                         * Error: Button is out of the parent layout, return previous changes to default.
+                         */
+                        Toast.makeText(getContext(),"Button is out of bounds",Toast.LENGTH_SHORT).show();
+                        btn.setCellHeightRatio(default_cell_height);
+                        btn.setCellWidthRatio(default_cell_width);
+                        break;
+                }
+
+                dismiss();
+            }
+        });
+
+    }
+}
+</code></pre>
+</div>
+                <div>
+                    <p>Implementing the ButtonCustomizer on DNDPager</p><pre><code class="java hljs">
+ pager.setOnCustomize(new IDNDPager.ItemView() {
+            @Override
+            public void onCustomize(DNDPager pager, View view) {
+                DNDButton btn = (DNDButton) view;
+                ButtonCustomizer
+                        .getInstance(btn)
+                        .show(getSupportFragmentManager(),"customized");
+            }
+        });
+</code></pre>
+</div>
+                <div>
+                    <p>Implementing the ButtonCustomizer on FCollectionAdapter</p><pre><code class="java hljs">
+ adapter.setCustomizeFragment(new IDNDPager.ItemView() {
+            @Override
+            public void onCustomize(DNDPager pager, View view) {
+                DNDButton btn = (DNDButton) view;
+                ButtonCustomizer
+                        .getInstance(btn)
+                        .show(getSupportFragmentManager(),"customized");
+            }
+        });
+</code></pre>
+</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-dark bg-primary">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 item">
+                        <h3>Navigate</h3>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Tutorial</a></li>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="https://github.com/noahjames404/DragNDropPager">Github Repo</a></li>
+                            <li><a href="https://jitpack.io/#noahjames404/dragndroppager">Jitpack Library</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Author</h3>
+                        <p>Noah James Yanga</p>
+                    </div>
+                </div>
+                <p class="text-white text-center">Radteam © 2019</p>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
