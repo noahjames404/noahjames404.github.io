@@ -26,22 +26,23 @@
             </div>
         </div>
     </nav>
-    <div class="row mt-3">
-        <div class="col-12 col-lg-3 col-xl-3">
-            <div class="p-3">
-                <h3>Tutorials</h3>
-                <p class="mb-1"><a href="tutorial-single-page.html">Single Page</a></p>
-                <p class="mb-1"><a href="tutorial-multiple-pages.html">Multiple Pages</a></p>
-                <p class="mb-1"><a href="tutorial-multiple-pages-viewpager.html">Multiple Pages with View Pager</a></p>
-                <p class="mb-1"><a href="tutorial-extract-items.html">Extract Items in a Page</a></p>
-                <p class="mb-1"><a href="tutorial-button-customization.html">Button Customization</a></p>
+    <div class="jumbotron bg-white">
+        <div class="row mt-3">
+            <div class="col-12 col-lg-3 col-xl-3">
+                <div class="p-3">
+                    <h3>Tutorials</h3>
+                    <p class="mb-1"><a href="tutorial-single-page.html">Single Page</a></p>
+                    <p class="mb-1"><a href="tutorial-multiple-pages.html">Multiple Pages</a></p>
+                    <p class="mb-1"><a href="tutorial-multiple-pages-viewpager.html">Multiple Pages with View Pager</a></p>
+                    <p class="mb-1"><a href="tutorial-extract-items.html">Extract Items in a Page</a></p>
+                    <p class="mb-1"><a href="tutorial-button-customization.html">Button Customization</a></p>
+                </div>
             </div>
-        </div>
-        <div class="col">
-            <div>
-                <h1 class="p-2">Multiple Pages</h1>
+            <div class="col">
                 <div>
-                    <p>A multiple page consist of a group Relative Layouts. Inside the xml type the following.</p><pre><code class="xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                    <h1 class="p-2">Multiple Pages</h1>
+                    <div>
+                        <p>A multiple page consist of a group Relative Layouts. Inside the xml type the following.</p><pre><code class="xml hljs">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -69,8 +70,8 @@
 &lt;/LinearLayout&gt;
 </code></pre>
 </div>
-                <div>
-                    <p>Create 3 instances DNDPager and add the three layout's to its corresponding parameter, ensure that they have the same group_id e.i "mygroup".</p><pre><code class="java hljs">RelativeLayout page_one = findViewById(R.id.page_one);
+                    <div>
+                        <p>Create 3 instances DNDPager and add the three layout's to its corresponding parameter, ensure that they have the same group_id e.i "mygroup".</p><pre><code class="java hljs">RelativeLayout page_one = findViewById(R.id.page_one);
 RelativeLayout page_two = findViewById(R.id.page_two);
 RelativeLayout page_three = findViewById(R.id.page_three);
 
@@ -79,14 +80,14 @@ DNDPager pager2 = new DNDPager(page_two,3,3,"mygroup",this);
 DNDPager pager3 = new DNDPager(page_three,5,5,"mygroup",this);
 </code></pre>
 </div>
-                <div>
-                    <p>set setIsEditable() method to true to enable drag &amp; drop feature to each DNDPager class</p><pre><code class="java hljs">pager1.setIsEditable(true);
+                    <div>
+                        <p>set setIsEditable() method to true to enable drag &amp; drop feature to each DNDPager class</p><pre><code class="java hljs">pager1.setIsEditable(true);
 pager2.setIsEditable(true);
 pager3.setIsEditable(true);
 </code></pre>
 </div>
-                <div>
-                    <p>Create a list of DNDItems for each DNDPager.</p><pre><code class="java hljs">List&lt;DNDItem&gt; pager1_items = new ArrayList&lt;&gt;();
+                    <div>
+                        <p>Create a list of DNDItems for each DNDPager.</p><pre><code class="java hljs">List&lt;DNDItem&gt; pager1_items = new ArrayList&lt;&gt;();
 pager1_items.add(new DNDItem("I'm alone",null, Color.GREEN,""));
 
 List&lt;DNDItem&gt; pager2_items = new ArrayList&lt;&gt;();
@@ -98,13 +99,14 @@ List&lt;DNDItem&gt; pager3_items = new ArrayList&lt;&gt;();
 pager3_items.add(new DNDItem("What",null, Color.GREEN,""));
 </code></pre>
 </div>
-                <div>
-                    <p>Then apply the corresponding list of DNDItems upon rendering each DNDPager. Try to run the code to check if its working.</p><pre><code class="java hljs">pager1.render(pager1_items);
+                    <div>
+                        <p>Then apply the corresponding list of DNDItems upon rendering each DNDPager. Try to run the code to check if its working.</p><pre><code class="java hljs">pager1.render(pager1_items);
 pager2.render(pager2_items);
 pager3.render(pager3_items);
 </code></pre>
 </div>
-                <div></div>
+                    <div></div>
+                </div>
             </div>
         </div>
     </div>
