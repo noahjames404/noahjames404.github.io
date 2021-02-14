@@ -1,0 +1,3 @@
+[submodule "binary-expression-tree-visualization"]
+	path = binary-expression-tree-visualization
+	url = https://github.com/noahjames404/binary-expression-tree-visualization.git
