@@ -1,17 +1,215 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Underman</title>
-    <meta name="google-site-verification" content="98-tcvVeugs4HzayJX8zklcdXW3eEZUT9e-2uWwIlYQ" />
-    <style media="screen">
-      body {
-        display: flex;
-        justify-content: center;
-      }
-    </style>
-  </head>
-  <body>
-    <img src="underman.jpg" width="200px">
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .header {
+      background-image: url('assets/img/header.svg');
+      height: 100vh;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-heading {
+      font-weight: 600
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    #navbar {
+      background: rgba(0,0,0,0);
+    }
+
+    #navbar a{
+      color:#fff;
+    }
+
+    .vh100 {
+      height: 100vh;
+    }
+
+    .skill-circle {
+      border:1.5px dashed #000;
+      border-radius: 100%;
+      height: 100px;
+      width: 100px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
+
+    .skill-circle:hover {
+      border:1.5px solid #000;
+    }
+
+
+    .skill-circle i{
+      transition: all 0.5s;
+    }
+
+    .skill-circle:hover i {
+      transform: scale(1.3);
+    }
+
+
+
+    .skill-container {
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-4" id="navbar">
+    <div class="container">
+      <a class="navbar-brand  fs-3" href="#">Maphatar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link fs-5" href="#">Home</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5" href="#">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="header">
+    <div class="container">
+      <div>
+        <h1 class='text-white display-1 header-heading'>Hi, I'm Noah James!</h1>
+        <h2 class="text-white display-6">Got an Idea in mind? Let's start today!</h2>
+      </div>
+    </div>
+  </div>
+  <div class="my-5 py-5">
+    <div class="container">
+      <div class="row justify-content-between align-items-center">
+        <div class="col-12 col-md-7  order-2 order-md-1">
+          <h1 class='display-2 mb-5'>About Me</h1>
+          <p class='fs-5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <p class='fs-5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+        <div class="col-12 col-md-4 order-1 order-md-2 mb-5 mb-md-0">
+          <img src="assets/img/profile.jpg" class='img-fluid shadow-lg rounded'>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="my-5 pb-4">
+    <div class="container">
+      <h1 class='display-2 mb-5'>Services</h1>
+      <div class="row">
+        <div class="col-12 col-md-4 mb-4">
+          <div class="d-flex align-items-center">
+            <div class="skill-container">
+              <div class="skill-circle">
+                <i class="lni lni-android fs-1"></i>
+              </div>
+            </div>
+            <div class="ps-3">
+              <pre class="fs-4 mb-0">Android</pre>
+              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 mb-4">
+          <div class="d-flex align-items-center">
+            <div class="skill-container">
+              <div class="skill-circle">
+                <i class="lni lni-layers fs-1"></i>
+              </div>
+            </div>
+            <div class="ps-3">
+              <pre class="fs-4 mb-0">Android</pre>
+              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 mb-4">
+          <div class="d-flex align-items-center">
+            <div class="skill-container">
+              <div class="skill-circle">
+                <i class="lni lni-signal fs-1"></i>
+              </div>
+            </div>
+            <div class="ps-3">
+              <pre class="fs-4 mb-0">Android</pre>
+              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 mb-4">
+          <div class="d-flex align-items-center">
+            <div class="skill-container">
+              <div class="skill-circle">
+                <i class="lni lni-display-alt fs-1"></i>
+              </div>
+            </div>
+            <div class="ps-3">
+              <pre class="fs-4 mb-0">Android</pre>
+              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 mb-4">
+          <div class="d-flex align-items-center">
+            <div class="skill-container">
+              <div class="skill-circle">
+                <i class="lni lni-vector fs-1"></i>
+              </div>
+            </div>
+            <div class="ps-3">
+              <pre class="fs-4 mb-0">Android</pre>
+              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 mb-4">
+          <div class="d-flex align-items-center">
+            <div class="skill-container">
+              <div class="skill-circle">
+                <i class="lni lni-layout fs-1"></i>
+              </div>
+            </div>
+            <div class="ps-3">
+              <pre class="fs-4 mb-0">Android</pre>
+              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <div class="container mb-5">
+      <h1 class='display-2'>Gallery</h1>
+    </div>
+  </div>
+</body>
+
 </html>
