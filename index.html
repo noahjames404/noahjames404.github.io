@@ -2,6 +2,18 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBYKR2FVN0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-XBYKR2FVN0');
+  </script>
   <meta charset="utf-8">
   <title>Maphatar</title>
   <link rel="icon" type="image/x-icon" href="assets/img/logo.ico">
@@ -273,12 +285,12 @@
             order.</p>
           <p>It was easier said than done until he found something peculiar far from the reach of his light.</p>
           <br>
-          <div class="mb-1 d-flex">
+          <div class="mb-1 d-flex flex-column flex-md-row">
             <button class="btn btn-lg btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               FAQS
             </button>
             <div class="dropdown">
-              <button class="btn btn-info btn-lg dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <button class="btn btn-info btn-lg dropdown-toggle text-white  w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="lni lni-android-original"></i> Download (Beta v0.0.2)
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -322,7 +334,8 @@
               </ul>
               <h4>The Game lags / FPS drop</h4>
               <ul>
-                <li>Some players may encounter an FPS drop even with a high-end mobile phone. This issue might have been due to background apps running all at once, causing their CPU to overheat, leading to CPU-Throttling, which results in an FPS drop. Clearing them might improve the performance of the game. </li>
+                <li>Some players may encounter an FPS drop even with a high-end mobile phone. This issue might have been due to background apps running all at once, causing their CPU to overheat, leading to CPU-Throttling, which results in an FPS
+                  drop. Clearing them might improve the performance of the game. </li>
                 <li>Lowering the default Quality Settings in the game will greatly affect the overall performance of the game. (This feature will be available on v0.0.3) </li>
               </ul>
               <h4>Found a Bug?</h4>
@@ -397,7 +410,7 @@
   </div>
   <div class="bg-dark text-white py-3">
     <div class="container d-flex justify-content-center align-items-center flex-column flex-md-row">
-      Copyright © 2022 / Maphatar
+      Copyright © 2022 / <a href='#' class='text-decoration-none text-white mx-2'>Maphatar</a> - <a class='text-white mx-2' href='privacy/index.html'> Privacy Policy </a>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/gh/vaakash/socializer@2f749eb/js/socializer.min.js"></script>
