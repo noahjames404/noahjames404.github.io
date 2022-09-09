@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/vaakash/socializer@2f749eb/css/socializer.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -36,7 +36,6 @@
   <script type="text/javascript">
     $(window).scroll(function(event) {
       var scroll = $(window).scrollTop();
-      console.log(scroll);
       if (scroll == 0) {
         $("#navbar").removeClass('navbar-show-effect');
         $("#navbar").addClass('navbar-hide-effect');
@@ -44,6 +43,11 @@
         $("#navbar").addClass('navbar-show-effect');
         $("#navbar").removeClass('navbar-hide-effect');
       }
+    });
+
+    $(document).on('shown.bs.collapse',(e) =>{
+      e.target.scrollIntoView();
+      console.log("kicking");
     });
   </script>
 </head>
@@ -81,122 +85,40 @@
       </div>
     </div>
   </div>
-  <div class="my-5 pb-4 d-none" id="services">
-    <div class="container">
-      <h1 class='display-2 mb-5'>Services</h1>
-      <div class="row">
-        <div class="col-12 col-md-4 mb-4">
-          <div class="d-flex align-items-center">
-            <div class="skill-container">
-              <div class="skill-circle">
-                <i class="lni lni-android fs-1"></i>
-              </div>
-            </div>
-            <div class="ps-3">
-              <pre class="fs-4 mb-0">Android</pre>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4 mb-4">
-          <div class="d-flex align-items-center">
-            <div class="skill-container">
-              <div class="skill-circle">
-                <i class="lni lni-layers fs-1"></i>
-              </div>
-            </div>
-            <div class="ps-3">
-              <pre class="fs-4 mb-0">Integration</pre>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4 mb-4">
-          <div class="d-flex align-items-center">
-            <div class="skill-container">
-              <div class="skill-circle">
-                <i class="lni lni-signal fs-1"></i>
-              </div>
-            </div>
-            <div class="ps-3">
-              <pre class="fs-4 mb-0">IOT</pre>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4 mb-4">
-          <div class="d-flex align-items-center">
-            <div class="skill-container">
-              <div class="skill-circle">
-                <i class="lni lni-display-alt fs-1"></i>
-              </div>
-            </div>
-            <div class="ps-3">
-              <pre class="fs-4 mb-0">Desktop</pre>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4 mb-4">
-          <div class="d-flex align-items-center">
-            <div class="skill-container">
-              <div class="skill-circle">
-                <i class="lni lni-vector fs-1"></i>
-              </div>
-            </div>
-            <div class="ps-3">
-              <pre class="fs-4 mb-0">Electronics</pre>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4 mb-4">
-          <div class="d-flex align-items-center">
-            <div class="skill-container">
-              <div class="skill-circle">
-                <i class="lni lni-layout fs-1"></i>
-              </div>
-            </div>
-            <div class="ps-3">
-              <pre class="fs-4 mb-0">Website</pre>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="pt-5 mt-5" id="games">
     <div class="container pb-4">
       <h1 class='display-2 mb-0' style="margin-left:-0.1em">Games</h1>
       <p class='fs-5 text-muted'>Upcoming games</p>
-      <div id="kokomeron">
-
-      </div>
+      <div id="kokomeron"></div>
       <div class="row my-5">
-        <div class="col-12 col-md-6 mb-6">
+        <div class="col-12 col-lg-6 mb-6">
           <a href="assets/img/kokomeron.PNG" data-lightbox="kokomeron" data-title="Kokomeron">
             <img src="assets/img/kokomeron.PNG" class='img-fluid rounded' alt="">
           </a>
           <div class="socializer mt-3" data-features="32px,opacity,icon-white,pad" data-sites="facebook,twitter,reddit,email,whatsapp" data-meta-link="https://maphatar.com/#kokomeron" data-meta-title="Kokomeron"></div>
         </div>
-        <div class="col-12 col-md-6 mb-6 fs-5">
+        <div class="col-12 col-lg-6 mb-6 fs-5">
           <h1>Kokomeron</h1>
           <p>Kokomeron is a horror game developed by Maphatar Animation Studio. It's currently available on Android. And we're also aiming for PC & IOS release (sooner or later).</p>
           <p>The game starts in the middle of the night in a town surrounded by walls. Martin, who just got into town, was tasked to buy some condiments by his mother, but to get out, he must unlock the four gates on each side of the town in proper
             order.</p>
           <p>It was easier said than done until he found something peculiar far from the reach of his light.</p>
           <br>
-          <div class="mb-1 d-flex flex-column flex-md-row">
-            <button class="btn btn-lg btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              FAQS
-            </button>
-            <a target="_blank" href="https://play.google.com/store/apps/details?id=com.Mapthar.kokomeron" class="btn btn-lg btn-success" ><i class="lni lni-play-store"></i> Google Play</a>
+          <div class="mb-1 d-flex flex-column flex-lg-row justify-content-between">
+            <a target="_blank" href="https://play.google.com/store/apps/details?id=com.Mapthar.kokomeron" class="btn btn-lg btn-success mb-2" ><i class="lni lni-play-store"></i> Google Play</a>
+            <div class="d-flex ">
+              <button class="btn btn-lg btn-primary w-100 w-md-auto mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#faqs" aria-expanded="false" aria-controls="collapseExample">
+                FAQS
+              </button>
+              <button class="btn btn-lg btn-primary w-100 w-md-auto mb-2 ms-2 text-nowrap" type="button" data-bs-toggle="collapse" data-bs-target="#changelog" aria-expanded="false" aria-controls="collapseExample">
+                Change Log
+              </button>
+            </div>
           </div>
         </div>
       </div>
       <div class="fs-5">
-        <div class="collapse" id="collapseExample">
+        <div class="collapse anchor" id="faqs">
           <div class="card card-body">
             <h1 class='mb-4'>FAQS</h1>
             <div class="container">
@@ -225,6 +147,41 @@
             </div>
           </div>
         </div>
+        <div class="collapse anchor mt-2" id="changelog">
+          <div class="card card-body">
+            <h1 class='mb-4'>Change Log</h1>
+            <div class="container">
+              <div class="">
+                <h4>Beta v0.0.3 - Performance Update</h4>
+                <ul>
+                  <li>Added Quality Settings</li>
+                  <li>Added Joystick Sensitivity Settings</li>
+                  <li>Added Control Guides</li>
+                  <li>Added Random Quotes & Tips upon death.</li>
+                  <li>Game Performance Enhancement.</li>
+                  <li>Fixed minor issues.</li>
+                </ul>
+              </div>
+              <div class="">
+                <h4>Beta v0.0.2 - UI/UX Update</h4>
+                <ul>
+                  <li>Changed the joystick position from floating to fixed.</li>
+                  <li>Fixed flashlight not turning off after Stuttering Buff. </li>
+                  <li>Camera pan adjustments.</li>
+                  <li>Added Feedback Page.</li>
+                  <li>Instruction clarification.</li>
+                  <li>Language Standardization.</li>
+                </ul>
+              </div>
+              <div class="">
+                <h4>Beta v0.0.1 - First step Update</h4>
+                <ul>
+                  <li>Initial Release</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -232,17 +189,15 @@
     <div class="container pb-4">
       <h1 class='display-2 mb-0' style="margin-left:-0.1em">Support Us</h1>
       <p class='fs-5 text-muted'>Help us grow</p>
-      <div id="supportus">
-
-      </div>
+      <div id="supportus"></div>
       <div class="row my-5">
-        <div class="col-12 col-md-6 mb-6">
+        <div class="col-12 col-lg-6 mb-6">
           <a href="assets/img/kokomeron_merch.webp" data-lightbox="kokomeron merch" data-title="Kokomeron">
             <img src="assets/img/kokomeron_merch.webp" class='img-fluid rounded' alt="">
           </a>
           <div class="socializer mt-3" data-features="32px,opacity,icon-white,pad" data-sites="facebook,twitter,reddit,email,whatsapp" data-meta-link="https://maphatar.com/#supportus" data-meta-title="Kokomeron"></div>
         </div>
-        <div class="col-12 col-md-6 mb-6 fs-5">
+        <div class="col-12 col-lg-6 mb-6 fs-5">
           <p>Hi-ho! We like to thank everyone for playing our game. The time, interest, and effort you gave for our game is trully remarkable and inspiring. And it's more than enough to keep us pushing on to design & build new games for the Filipino Gaming Community.</p>
           <p>But If you wish to support us further, you can buy our merch via our selected online stores - Shopee & Lazada. You can also support us via our Patreon page.</p>
           <p>Your continuous support helps us grow and improve our services. We, the Developers & Artist of Maphatar, are trully grateful for your actions. </p>
@@ -315,7 +270,7 @@
       </div>
     </div>
   </div>
-  <div class="" id='join-us'>
+  <div class="not-anchor" id='join-us'>
     <div class="filter text-white d-flex align-items-center">
       <div class="container py-5">
         <h1 class='display-2 mb-0 mb-5'>Reach Us</h1>
