@@ -38,6 +38,11 @@ body {
 
 }
 
+#others .filter {
+  height: 100%;
+  background: rgba(50, 50, 50, 0.7);
+}
+
 #join-us .filter {
   height: 100%;
   background: rgba(50, 50, 50, 0.7);
